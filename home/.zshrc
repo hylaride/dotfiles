@@ -86,4 +86,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-source .homesick/repos/homeshick/homeshick.sh 
+source $HOME/.homesick/repos/homeshick/homeshick.sh 
