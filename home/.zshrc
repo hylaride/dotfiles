@@ -2,6 +2,11 @@
 export ZSH=~/.oh-my-zsh
 export ANSIBLE_HOST_KEY_CHECKING=False
 
+if [[ ! -a ~/.localenv.zsh ]]; then
+   touch ~/.localenv.zsh 
+fi
+
+source ~/.localenv.zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
