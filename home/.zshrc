@@ -59,7 +59,7 @@ plugins=(git aws brew docker nmap osx postgres)
 
 # User configuration
 
-export PATH="$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
+export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -92,3 +92,6 @@ source $ZSH/oh-my-zsh.sh
 # Homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $HOME/.homesick/repos/homeshick/homeshick.sh 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
