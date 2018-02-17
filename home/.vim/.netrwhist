@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/chylarides/.oh-my-zsh'
-let g:netrw_dirhist_2='/home/chylarides/contxt-ops/terraform/env-scicopy/.terraform'
-let g:netrw_dirhist_3='/Users/chylarides/scx/contxt-ops/terraform'
-let g:netrw_dirhist_4='/private/var/log/powermanagement'
-let g:netrw_dirhist_5='/Users/chylarides/scx/contxt-ops/terraform/modules/elastic_mapreduce'
-let g:netrw_dirhist_6='/Users/chylarides/scx/contxt-ops/packer/as-server'
-let g:netrw_dirhist_7='/Users/chylarides/scx/ansible-consul/tasks'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/chylarides/scx/contxt-ops/packer/base-server'

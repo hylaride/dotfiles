@@ -95,3 +95,21 @@ source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/opt/node@6/bin:$PATH"
+
+if [[ "$ENABLE_CORRECTION" == "true" ]]; then
+  alias ebuild='nocorrect ebuild'
+  alias gist='nocorrect gist'
+  alias heroku='nocorrect heroku'
+  alias hpodder='nocorrect hpodder'
+  alias man='nocorrect man'
+  alias mkdir='nocorrect mkdir'
+  alias mv='nocorrect mv'
+  alias mysql='nocorrect mysql'
+  alias sudo='nocorrect sudo'
+  alias vim='nocorrect vim'
+  alias ssh='nocorrect ssh'
+  alias kitchen='nocorrect kitchen'
+
+  setopt correct_all
+fi
