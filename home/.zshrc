@@ -33,7 +33,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -55,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aws brew docker nmap osx postgres)
+plugins=(git aws brew docker nmap osx pyenv postgres)
 
 # User configuration
 
@@ -98,18 +98,22 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/node@6/bin:$PATH"
 
 if [[ "$ENABLE_CORRECTION" == "true" ]]; then
-  alias ebuild='nocorrect ebuild'
-  alias gist='nocorrect gist'
-  alias heroku='nocorrect heroku'
-  alias hpodder='nocorrect hpodder'
-  alias man='nocorrect man'
-  alias mkdir='nocorrect mkdir'
-  alias mv='nocorrect mv'
-  alias mysql='nocorrect mysql'
-  alias sudo='nocorrect sudo'
-  alias vim='nocorrect vim'
-  alias ssh='nocorrect ssh'
-  alias kitchen='nocorrect kitchen'
+ # alias ebuild='nocorrect ebuild'
+ # alias gist='nocorrect gist'
+ # alias heroku='nocorrect heroku'
+ # alias hpodder='nocorrect hpodder'
+ # alias man='nocorrect man'
+ # alias mkdir='nocorrect mkdir'
+ # alias mv='nocorrect mv'
+ # alias mysql='nocorrect mysql'
+ # alias sudo='nocorrect sudo'
+ # alias vim='nocorrect vim'
+ # alias ssh='nocorrect ssh'
+ # alias ansible='nocorrect ansible'
 
-  setopt correct_all
+#  setopt nocorrect_all
+fi
+
+if [[ -d ~/.p3-env-main ]]; then
+   source ~/.p3-env-main/bin/activate
 fi
