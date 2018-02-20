@@ -114,6 +114,6 @@ if [[ "$ENABLE_CORRECTION" == "true" ]]; then
 #  setopt nocorrect_all
 fi
 
-if [[ -d ~/.p3-env-main ]]; then
-   source ~/.p3-env-main/bin/activate
+if [[ -d ~/.p2-env-main ]]; then
+   source ~/.p2-env-main/bin/activate
 fi
