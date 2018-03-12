@@ -26,6 +26,11 @@ source $HOME/.homesick/repos/homeshick/homeshick.sh
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/opt/node@6/bin:$PATH"
 
+# Install vim plugins, if not already done
+if [[ ! -d ~/.vim/plugged ]]; then
+  vim +PlugInstall +qall
+fi
+
 # Source python2 env, if it exists
 if [[ -d ~/.p2-env-main ]]; then
   source ~/.p2-env-main/bin/activate

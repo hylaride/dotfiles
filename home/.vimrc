@@ -1,7 +1,6 @@
 filetype off
-"set rtp+=~/.vim/bundle/Vundle.vim
+" Plugins
 call plug#begin('~/.vim/plugged')
-Plug 'VundleVim/Vundle.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
