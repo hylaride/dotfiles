@@ -3,6 +3,7 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'airblade/vim-gitgutter'
@@ -14,9 +15,9 @@ call plug#end()
 set laststatus=2     " Necessary for vim-airline
 set background=dark " or light if you prefer the light version
 syntax enable
+color dracula
 set number
 let g:two_firewatch_italics=1
-colo two-firewatch
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set completeopt-=preview
