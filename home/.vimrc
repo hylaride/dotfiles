@@ -34,10 +34,13 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
+
 let g:indentLine_char = '|'
 let g:indentLine_color_term = 239
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
+let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_gui = '#FF5F00'
 
 " Syntastic Config
 set statusline+=%#warningmsg#
