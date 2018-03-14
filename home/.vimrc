@@ -11,7 +11,7 @@ Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
 Plug 'juliosueiras/vim-terraform-completion'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 call plug#end()
 
 set laststatus=2     " Necessary for vim-airline
@@ -24,7 +24,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-
 set number
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -34,13 +33,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
-
-let g:indentLine_char = '|'
-let g:indentLine_color_term = 239
-let g:indentLine_concealcursor = 'inc'
-let g:indentLine_conceallevel = 2
-let g:indentLine_bgcolor_term = 202
-let g:indentLine_bgcolor_gui = '#FF5F00'
 
 " Syntastic Config
 set statusline+=%#warningmsg#
@@ -55,3 +47,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_terraform_tffilter_plan = 1
 let g:terraform_completion_keys = 1
 let g:terraform_registry_module_completion = 0
+
+" Indent guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+set ts=2 sw=2 et
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
