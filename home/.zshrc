@@ -9,7 +9,7 @@ fi
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git zsh-autosuggestions aws brew docker nmap osx pyenv postgres)
+plugins=(git zsh-autosuggestions aws brew docker nmap osx pyenv python sudo tmux pip postgres)
 
 # User configuration
 export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
