@@ -51,6 +51,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_terraform_tffilter_plan = 1
 let g:terraform_completion_keys = 1
 let g:terraform_registry_module_completion = 0
+let g:terraform_fmt_on_save = 1
 
 " Indent guides
 let g:indent_guides_enable_on_vim_startup = 1
