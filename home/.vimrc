@@ -1,4 +1,5 @@
 filetype off
+set nocompatible
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -15,6 +16,15 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Townk/vim-autoclose'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'Shougo/neocomplete.vim'
+"Plug 'SirVer/ultisnips'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'sebosp/vim-snippets-terraform'
+Plug 'sjl/gundo.vim'
 call plug#end()
 
 set encoding=utf8
@@ -64,3 +74,20 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 " NertTree
 map <C-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NeoComplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Gundo
+if has('python3')
+    let g:gundo_prefer_python3 = 1
+endif
+nnoremap <c-g> :GundoToggle<CR>
+let g:gundo_right=1

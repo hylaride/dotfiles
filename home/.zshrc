@@ -48,6 +48,9 @@ base16_default-dark
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git aws zsh-autosuggestions brew docker nmap osx pyenv python sudo tmux pip postgres)
+plugins=(git aws zsh-autosuggestions brew docker nmap osx pyenv python tmux sudo pip postgres)
 
 source $ZSH/oh-my-zsh.sh
+
+#Aliases
+alias agent_ssh_sync='eval $(tmux show-env -s |grep '^SSH_')' # get forwaded agent key after re-attaching in tmux
