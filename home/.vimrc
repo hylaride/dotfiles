@@ -1,5 +1,17 @@
-filetype off
 set nocompatible
+syntax on
+filetype plugin indent on
+set wildmenu
+set wildmode=list:longest
+set encoding=utf8
+set laststatus=2     " Necessary for vim-airline
+set background=dark " or light if you prefer the light version
+set number
+set smarttab
+set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -7,44 +19,31 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'hashivim/vim-terraform', { 'for': 'terraform' }
+Plug 'hashivim/vim-terraform'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-syntastic/syntastic'
-Plug 'juliosueiras/vim-terraform-completion'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Townk/vim-autoclose'
+Plug 'sjl/gundo.vim'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp'
+Plug 'Shougo/deoplete.nvim'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'Shougo/neocomplete.vim'
-"Plug 'SirVer/ultisnips'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'sebosp/vim-snippets-terraform'
-Plug 'sjl/gundo.vim'
 call plug#end()
-
-set encoding=utf8
-set laststatus=2     " Necessary for vim-airline
-set background=dark " or light if you prefer the light version
-syntax enable
 
 " base16 colours
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-
-set number
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
-set completeopt-=preview
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
 let g:airline_theme='base16'
 let g:airline_powerline_fonts = 1
 
@@ -60,7 +59,7 @@ let g:syntastic_check_on_wq = 0
 " Terraform
 let g:syntastic_terraform_tffilter_plan = 1
 let g:terraform_completion_keys = 1
-let g:terraform_registry_module_completion = 0
+let g:terraform_registry_module_completion = 1
 let g:terraform_fmt_on_save = 1
 
 " Indent guides
@@ -75,15 +74,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 map <C-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" NeoComplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" deoplete
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:deoplete#complete_method = 'omnifunc'
+let g:deoplete#enable_at_startup = 1
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['terraform'] = 'tf'
 
 " Gundo
 if has('python3')
@@ -91,3 +90,4 @@ if has('python3')
 endif
 nnoremap <c-g> :GundoToggle<CR>
 let g:gundo_right=1
+
