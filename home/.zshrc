@@ -51,6 +51,7 @@ ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
 plugins=(git aws zsh-autosuggestions brew docker nmap osx pyenv python tmux sudo pip postgres)
 
+ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
 
 #Aliases
