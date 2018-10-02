@@ -7,6 +7,7 @@ export VIRTUAL_ENV_DISABLE_PROMPT=0
 if [[ ! -a ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
+DISABLE_UPDATE_PROMPT=true
 #
 # Source python2 env, if it exists
 if [[ -d ~/.p2-env-main ]]; then
