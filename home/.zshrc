@@ -8,11 +8,6 @@ if [[ ! -a ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
 DISABLE_UPDATE_PROMPT=true
-#
-# Source python2 env, if it exists
-if [[ -d ~/.p2-env-main ]]; then
-  source ~/.p2-env-main/bin/activate
-fi
 
 # User configuration
 export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
@@ -50,7 +45,7 @@ base16_default-dark
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git aws zsh-autosuggestions brew docker nmap osx pyenv python tmux sudo pip postgres)
+plugins=(git zsh-autosuggestions brew docker nmap osx pyenv python tmux sudo pip postgres)
 
 ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
