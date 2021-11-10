@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export ANSIBLE_HOST_KEY_CHECKING=False
@@ -35,6 +42,12 @@ if [[ ! -a ~/.localenv.zsh ]]; then
 fi
 source ~/.localenv.zsh
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+   eval "$(pyenv virtualenv-init -)"
+fi
+
 if [[ ! -a  ~/.config/base16-shell ]]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 fi
@@ -44,12 +57,15 @@ BASE16_SHELL=$HOME/.config/base16-shell/
 
 base16_default-dark
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git zsh-autosuggestions brew docker nmap osx pyenv python tmux sudo pip postgres)
+plugins=(git zsh-autosuggestions brew docker nmap macos python tmux sudo pip postgres)
 
 ZSH_DISABLE_COMPFIX="true"
 source $ZSH/oh-my-zsh.sh
 
 #Aliases
 alias agent_ssh_sync='eval $(tmux show-env -s |grep '^SSH_')' # get forwaded agent key after re-attaching in tmux
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
