@@ -15,6 +15,9 @@ export AWS_VAULT_KEYCHAIN_NAME=login
 if [[ ! -a ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 fi
+if [[ ! -a ~/.oh-my-zsh/custom/themes/powerlevel10k ]]; then
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
 DISABLE_UPDATE_PROMPT=true
 
 # User configuration
