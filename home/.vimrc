@@ -76,6 +76,7 @@ let g:deoplete#complete_method = 'omnifunc'
 let g:deoplete#enable_at_startup = 1
 
 " Snippets
+let g:snipMate = { 'snippet_version' : 1 }
 let g:snipMate = get(g:, 'snipMate', {}) " Allow for vimrc re-sourcing
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['terraform'] = 'tf'

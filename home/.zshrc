@@ -21,7 +21,7 @@ fi
 DISABLE_UPDATE_PROMPT=true
 
 # User configuration
-export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/MacGPG2/bin"
+export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Fixes some annoying local shit if my source machine is set to canadian locale
 export  LC_CTYPE="en_US.UTF-8"
@@ -45,8 +45,8 @@ if [[ ! -a ~/.localenv.zsh ]]; then
 fi
 source ~/.localenv.zsh
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv/shims"
+export PATH="$PYENV_ROOT:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
    eval "$(pyenv virtualenv-init -)"
 fi
