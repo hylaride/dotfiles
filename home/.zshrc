@@ -21,7 +21,7 @@ fi
 DISABLE_UPDATE_PROMPT=true
 
 # User configuration
-export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/sbin"
 
 # Fixes some annoying local shit if my source machine is set to canadian locale
 export  LC_CTYPE="en_US.UTF-8"
@@ -55,8 +55,10 @@ if [[ ! -a  ~/.config/base16-shell ]]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 fi
 
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 COMPLETION_WAITING_DOTS="true"
