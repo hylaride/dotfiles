@@ -21,7 +21,7 @@ fi
 DISABLE_UPDATE_PROMPT=true
 
 # User configuration
-export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin:/opt/homebrew/sbin"
+export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin"
 
 # Fixes some annoying local shit if my source machine is set to canadian locale
 export  LC_CTYPE="en_US.UTF-8"
@@ -30,9 +30,6 @@ export  LC_CTYPE="en_US.UTF-8"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $HOME/.homesick/repos/homeshick/homeshick.sh 
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/usr/local/opt/node@6/bin:$PATH"
 
 # Install vim plugins, if not already done
 if [[ ! -d ~/.vim/plugged ]]; then
@@ -46,8 +43,8 @@ fi
 source ~/.localenv.zsh
 
 export PYENV_ROOT="$HOME/.pyenv/shims"
-export PATH="$PYENV_ROOT:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
+   eval "$(pyenv init -)"
    eval "$(pyenv virtualenv-init -)"
 fi
 
