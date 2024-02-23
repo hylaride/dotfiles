@@ -21,7 +21,7 @@ fi
 DISABLE_UPDATE_PROMPT=true
 
 # User configuration
-export PATH="$PATH:$HOME/.tfenv/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin"
+export PATH="$HOME/.tfenv/bin:/usr/local/sbin:/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/opt/curl/bin:$PATH"
 
 # Fixes some annoying local shit if my source machine is set to canadian locale
 export  LC_CTYPE="en_US.UTF-8"
