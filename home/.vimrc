@@ -71,7 +71,7 @@ map <C-t> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " deoplete
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/Users/christopher/.pyenv/shims/shims/python3'
 let g:deoplete#complete_method = 'omnifunc'
 let g:deoplete#enable_at_startup = 1
 
