@@ -4,6 +4,7 @@
 [core]
 	editor = vi
 	excludesfile = /Users/chylarides/.gitignore_global
+	pager = less
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -18,3 +19,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[pager]
+	branch = cat

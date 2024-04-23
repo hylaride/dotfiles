@@ -10,6 +10,7 @@ export ZSH=~/.oh-my-zsh
 export ANSIBLE_HOST_KEY_CHECKING=False
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export AWS_VAULT_KEYCHAIN_NAME=login
+export AWS_PAGER=""
 
 # Oh-my-zsh stuff
 if [[ ! -a ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
