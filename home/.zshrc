@@ -31,13 +31,12 @@ export  LC_CTYPE="en_US.UTF-8"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 source $HOME/.homesick/repos/homeshick/homeshick.sh 
 
-
 # Install vim plugins, if not already done
 if [[ ! -d ~/.vim/plugged ]]; then
   vim +PlugInstall +qall
 fi
 
-# On my desktop I source custom stuff here
+# On my desktop I source custom stuff here (eg credential env vars I don't want in git)
 if [[ ! -a ~/.localenv.zsh ]]; then
   touch ~/.localenv.zsh 
 fi
@@ -60,13 +59,45 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 COMPLETION_WAITING_DOTS="true"
-plugins=(git zsh-autosuggestions brew docker nmap macos python tmux sudo pip postgres)
-
+plugins=(git zsh-autosuggestions brew macos docker nmap python tmux sudo pip postgres)
 ZSH_DISABLE_COMPFIX="true"
+
 source $ZSH/oh-my-zsh.sh
+
+#still use the macos ssh-add to grab the keys into the homebrew ssh-agent since it can use macos's keychain
+unset SSH_AUTH_SOCKET # even doing a conditional ssh-add list will have the macos native ssh-agent started
+if [[ "$(uname)" == "Darwin" ]]; then
+  ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
+  if [[ -f "$ssh_env_cache" ]]; then
+    . "$ssh_env_cache" > /dev/null
+    # Test if $SSH_AUTH_SOCK is visible
+    zmodload zsh/net/socket
+    if [[ -S "$SSH_AUTH_SOCK" ]] && zsocket "$SSH_AUTH_SOCK" 2>/dev/null; then
+      if [[ "$(ssh-add -l)" =~ "no identities" ]]; then
+        /usr/bin/ssh-add --apple-load-keychain > /dev/null 2>&1
+      fi
+    else
+      export SSH_ASKPASS=/opt/homebrew/bin/ssh-askpass
+      export DISPLAY=localhost:0.0
+      ssh-agent -s | sed '/^echo/d' >! "$ssh_env_cache"
+      chmod 600 "$ssh_env_cache"
+      . "$ssh_env_cache" > /dev/null
+      /usr/bin/ssh-add --apple-load-keychain > /dev/null 2>&1
+    fi
+  else
+    export SSH_ASKPASS=/opt/homebrew/bin/ssh-askpass
+    export DISPLAY=localhost:0.0
+    ssh-agent -s | sed '/^echo/d' >! "$ssh_env_cache"
+    chmod 600 "$ssh_env_cache"
+    . "$ssh_env_cache" > /dev/null
+    /usr/bin/ssh-add --apple-load-keychain > /dev/null 2>&1
+  fi
+fi
 
 #Aliases
 alias agent_ssh_sync='eval $(tmux show-env -s |grep '^SSH_')' # get forwaded agent key after re-attaching in tmux
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+## END: Some things tend to append after here, eg aws-sso-cli
