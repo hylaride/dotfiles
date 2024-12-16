@@ -29,7 +29,7 @@ export  LC_CTYPE="en_US.UTF-8"
 
 # Homeshick
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
-source $HOME/.homesick/repos/homeshick/homeshick.sh 
+source $HOME/.homesick/repos/homeshick/homeshick.sh
 
 # Install vim plugins, if not already done
 if [[ ! -d ~/.vim/plugged ]]; then
@@ -38,7 +38,7 @@ fi
 
 # On my desktop I source custom stuff here (eg credential env vars I don't want in git)
 if [[ ! -a ~/.localenv.zsh ]]; then
-  touch ~/.localenv.zsh 
+  touch ~/.localenv.zsh
 fi
 source ~/.localenv.zsh
 
@@ -64,9 +64,8 @@ ZSH_DISABLE_COMPFIX="true"
 
 source $ZSH/oh-my-zsh.sh
 
-#still use the macos ssh-add to grab the keys into the homebrew ssh-agent since it can use macos's keychain
-unset SSH_AUTH_SOCKET # even doing a conditional ssh-add list will have the macos native ssh-agent started
 if [[ "$(uname)" == "Darwin" ]]; then
+  unset SSH_AUTH_SOCKET # even doing a conditional ssh-add list will have the macos native ssh-agent started
   ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
   if [[ -f "$ssh_env_cache" ]]; then
     . "$ssh_env_cache" > /dev/null
