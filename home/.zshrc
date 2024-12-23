@@ -11,6 +11,7 @@ export ANSIBLE_HOST_KEY_CHECKING=False
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export AWS_VAULT_KEYCHAIN_NAME=login
 export AWS_PAGER=""
+export ZSH_COMPDUMP="${HOME}/.cache/.zcompdump-${ZSH_VERSION}"
 
 # Oh-my-zsh stuff
 if [[ ! -a ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]]; then
