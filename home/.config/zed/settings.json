@@ -1,0 +1,85 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "assistant": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "phind-codellama:latest"
+    },
+    "version": "2"
+  },
+  "languages": {
+    "JSON": {
+      "show_inline_completions": false
+    },
+    "Terraform": {
+      "defaultFormatter": "hashicorp.terraform",
+      "formatOnSave": true
+    }
+  },
+  "auto_update_extensions": {
+    "terraform": false
+  },
+  "autosave": "on_window_change",
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "ui_font_size": 13,
+  "buffer_font_family": "SF Mono Powerline",
+  "buffer_font_size": 11,
+  "buffer_font_weight": 500,
+  "theme": "VSCode Dark Modern",
+  "soft_wrap": "editor_width",
+  "buffer_line_height": {
+    "custom": 1.2
+  },
+  "tabs": {
+    "git_status": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "background_coloring": "disabled"
+  },
+  "lsp": {
+    "terraform-ls": {
+      "initialization_options": {
+        "experimentalFeatures": {
+          "prefillRequiredFields": true
+        }
+      }
+    },
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace"
+        }
+      }
+    }
+  },
+  "terminal": {
+    "alternate_scroll": "off",
+    "blinking": "terminal_controlled",
+    "copy_on_select": false,
+    "env": {},
+    "font_family": "SF Mono Powerline",
+    "font_features": {},
+    "font_size": 10,
+    "option_as_meta": false,
+    "button": true,
+    "shell": "system",
+    "toolbar": {
+      "title": true
+    },
+    "working_directory": "current_project_directory"
+  }
+}
