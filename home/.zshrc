@@ -96,7 +96,10 @@ fi
 
 #Aliases
 alias agent_ssh_sync='eval $(tmux show-env -s |grep '^SSH_')' # get forwaded agent key after re-attaching in tmux
-
+alias apt-all='sudo apt-get update && sudo apt-get dist-upgrade --purge -y && sudo apt-get autoremove --purge -y && sudo apt-get update'
+alias agal-inst='ansible-galaxy install -r requirements.yml -f'
+alias git-cleanall='git checkout main && git pull && git remote prune origin'
+alias update-zsh-deps='(homeshick pull && cd ~/.oh-my-zsh && git pull && cd custom/plugins/zsh-autosuggestions && git pull && cd ../../themes/powerlevel10k && git pull)'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
