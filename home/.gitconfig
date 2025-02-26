@@ -5,19 +5,26 @@
 	editor = vi
 	excludesfile = /Users/chylarides/.gitignore_global
 	pager = less
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [alias]
 	lg = log --color --graph --abbrev-commit --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset'
 [push]
-	default = current
+	default = simple
+	autoSetupRemote = true
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
 [pager]
 	branch = cat
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[fetch]
+	prune = true
+	all = true
+[rebase]
+	updateRefs = true
+[merge]
+	conflictstyle = zdiff3
